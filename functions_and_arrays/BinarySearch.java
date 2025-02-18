@@ -11,17 +11,17 @@ public class BinarySearch {
             arr[i] = scn.nextInt();
         }
         int key = scn.nextInt();
+        Arrays.sort(arr);
         System.out.println(binarySearch(arr, key));
         scn.close();
     }
 
     public static int binarySearch(int[] arr, int key) {
-        Arrays.sort(arr);
         int low = 0;
         int high = arr.length - 1;
         int answer = -1;
         while (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high-low) / 2;
             if (arr[mid] < key) {
                 low = mid + 1;
             } else if (arr[mid] > key) {
